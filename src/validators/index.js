@@ -13,7 +13,6 @@ const userRegistrationValidator = ()=>{
             .isLength({max:13}).withMessage("Username within 13 char")    
     ]
 }
-
 const userLoginValidator = () => {
     return[
         body("email")
