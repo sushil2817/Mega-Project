@@ -30,3 +30,20 @@ const emailVerificationMailGenContent = (username,verificationUrl)=>{
         }
     }
 }
+const forgotPasswordMailGenContent = (username,verificationUrl)=>{
+    return {
+        body:{
+            name:username,
+            intro:"Welcome to App! We're very excited to have you on board.",
+            action: {
+            instructions: 'To get started with Mailgen, please click here:',
+            button: {
+                    color: '#22BC66', 
+                    text: 'verifty your email',
+                    link: verificationUrl
+                }
+            },
+            outro: 'Need help, or have questions? Just reply to this email, we\'d love to help.'
+        }
+    }
+}
