@@ -9,7 +9,9 @@ const sendMail = async (options) => {
             link: 'https://mailgen.js/'
         },
     });
-    // var emailBody = mailGenerator.generate(options);
+
+    var emailBody = mailGenerator.generate(options);
+
     var emailText = mailGenerator.generatePlaintext(options.mailGenContent);
 }
 
