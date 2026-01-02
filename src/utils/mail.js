@@ -9,21 +9,19 @@ const sendMail = async (options) => {
             link: 'https://mailgen.js/'
         },
     });
-
     var emailBody = mailGenerator.generate(options);
-
     var emailText = mailGenerator.generatePlaintext(options.mailGenContent);
 }
 
-const emailVerificationMailGenContent = (username,verificationUrl)=>{
+const emailVerificationMailGenContent = (username, verificationUrl) => {
     return {
-        body:{
-            name:username,
-            intro:"Welcome to App! We're very excited to have you on board.",
+        body: {
+            name: username,
+            intro: "Welcome to App! We're very excited to have you on board.",
             action: {
-            instructions: 'To get started with Mailgen, please click here:',
-            button: {
-                    color: '#22BC66', 
+                instructions: 'To get started with Mailgen, please click here:',
+                button: {
+                    color: '#22BC66',
                     text: 'verifty your email',
                     link: verificationUrl
                 }
@@ -32,15 +30,15 @@ const emailVerificationMailGenContent = (username,verificationUrl)=>{
         }
     }
 }
-const forgotPasswordMailGenContent = (username,verificationUrl)=>{
+const forgotPasswordMailGenContent = (username, verificationUrl) => {
     return {
-        body:{
-            name:username,
-            intro:"Welcome to App! We're very excited to have you on board.",
+        body: {
+            name: username,
+            intro: "Welcome to App! We're very excited to have you on board.",
             action: {
-            instructions: 'To get started with Mailgen, please click here:',
-            button: {
-                    color: '#22BC66', 
+                instructions: 'To get started with Mailgen, please click here:',
+                button: {
+                    color: '#22BC66',
                     text: 'verifty your email',
                     link: verificationUrl
                 }
