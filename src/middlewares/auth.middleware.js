@@ -37,11 +37,15 @@ export const validateProjectPermission = (roles = []) =>asyncHandler(async (req,
         project: mongoose.Types.ObjectId(projectId),
         user: mongoose.Types.ObjectId(req.user._id),
     })
-
+    
     if(!project){
         throw new ApiError(401,"Project not found");
     }
 
     const givenRole = project?.role
     req.user.role = givenRole
+    if(!roles.includes(givenRole)){
+        throw new ApiError(403,"You don't have permission to perform this operation");
+    }
+
 })
