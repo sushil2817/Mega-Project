@@ -1,18 +1,17 @@
 import { Router } from "express";
-import {UserRolesEnum} from '../utils/constants'
-import { validateProjectPermission } from "../middlewares/auth.middleware";
+import {UserRoleEnum} from '../utils/constants.js'
+import { valideProjectPermission } from "../middlewares/auth.middleware.js";
 
 const router = Router();
 
 router.route("/:projectId")
     .get(
-        validateProjectPermission([UserRolesEnum.ADMIN,UserRolesEnum.MEMBER]),
+        valideProjectPermission(
+            [UserRoleEnum.ADMIN,UserRoleEnum.MEMBER]),
         getNotes)
     .post(
-        validateProjectPermission(
-            [UserRolesEnum.ADMIN,
-            UserRolesEnum.MEMBER]
-        ),
+        valideProjectPermission(
+            [UserRoleEnum.ADMIN], UserRoleEnum.MEMBER),
         createNote
     )
 
