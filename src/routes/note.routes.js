@@ -9,6 +9,7 @@ router.route("/:projectId")
     .get(valideProjectPermission(AvailableUserRoles),getNotes)
     .post(valideProjectPermission([UserRoleEnum.ADMIN]),createNote)
 
+    
 router
 .route(":/projectId/n/:noteId")
 .get(valideProjectPermission(AvailableUserRoles),getNoteById)
