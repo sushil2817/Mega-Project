@@ -1,6 +1,5 @@
 import Mailgen from "mailgen";
 import nodemailer from "nodemailer";
-
 const sendMail = async (options) => {
     const mailGenerator = new Mailgen({
         theme: 'default',
@@ -11,7 +10,6 @@ const sendMail = async (options) => {
     });
     var emailHtml = mailGenerator.generate(options.mailGenContent);
     var emailText = mailGenerator.generatePlaintext(options.mailGenContent);
-
     const transporter = nodemailer.createTransport({
         host: process.env.MAILTRAP_SMTP_HOST, /* "smtp.ethereal.email" */
         port: process.env.MAILTRAP_SMTP_PORT, /* 587 */
@@ -21,7 +19,6 @@ const sendMail = async (options) => {
             pass: process.env.MAILTRAP_PASSWORD /*"jn7jnAPss4f63QBp6D"*/,
         },
     });
-
     const mail = {
         from: 'mail.taskmanager@hotmail.com',
         to: options.email,
@@ -29,7 +26,6 @@ const sendMail = async (options) => {
         text: emailText, 
         html: emailHtml,
     }
-
     try {
         await transporter.sendMail(mail)
     } catch (error) {
