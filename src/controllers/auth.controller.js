@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import {asyncHandler} from '../utils/async-handler'
 import {} from '../validators/'
 
@@ -48,3 +49,19 @@ const getCurrentUser = asyncHandler(async (req,res)=>{
 
 
 export {registerUser};
+=======
+import { asyncHandler } from "../utils/async-handler.js"
+
+const registerUser = asyncHandler(async (req,res)=>{
+    const {email,username,password,role} = req.body
+    // validation
+    if(!email || !password){
+
+    }
+    if(password.length < 8 ){}
+})
+
+export {
+    registerUser,
+}
+>>>>>>> 6dcd690 (Node js project)

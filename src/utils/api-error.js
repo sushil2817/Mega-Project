@@ -10,6 +10,10 @@ class ApiError extends Error{
         this.message = message;
         this.success = false;
         this.errors = errors;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6dcd690 (Node js project)
         if(stack){
             this.stack = stack
         }else{
@@ -18,5 +22,8 @@ class ApiError extends Error{
     }
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6dcd690 (Node js project)
 export {ApiError}

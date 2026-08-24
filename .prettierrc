@@ -5,6 +5,10 @@
     "singleQuote": false,
     "trailingComma": "all",
     "bracketSpacing": true,
+<<<<<<< HEAD
     "jsxSingleQuote": false,
+=======
+    "jsxBracketSameLine": false,
+>>>>>>> 6dcd690 (Node js project)
     "arrowParens": "always"
 }
