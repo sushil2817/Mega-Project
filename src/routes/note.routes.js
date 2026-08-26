@@ -1,18 +1,26 @@
 import { Router } from "express";
-import {UserRolesEnum} from "../utils/contants.js"
+import {AvailableUserRoles, UserRolesEnum} from "../utils/contants.js"
 import { validateProjectPermission } from "../middlewares/auth.middleware.js";
+import { createNote, deleteNote, getNoteById, updateNote } from "../controllers/note.controller.js";
 
 const router = Router();
 
 router.route("/:projectId")
     .get(
-        validateProjectPermission([UserRolesEnum.Admin],[UserRolesEnum.MEMBER]),
+        validateProjectPermission(AvailableUserRoles),
         getNotes)
     .post(
         validateProjectPermission([UserRolesEnum.ADMIN]),
         createNote)
 
-
+router
+    .route("/:projectId/n/:noteId")
+    .get(validateProjectPermission(AvailableUserRoles),
+        getNoteById)
+    .put(validateProjectPermission([UserRolesEnum.ADMIN]),
+    updateNote)
+    .delete(validateProjectPermission([UserRolesEnum.ADMIN]),
+    deleteNote)
 
 export default router;
 
